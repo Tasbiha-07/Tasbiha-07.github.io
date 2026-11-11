@@ -180,7 +180,7 @@
   <!-- Main Container -->
   <main class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-24 space-y-28">
 
-    <!-- HERO SECTION (Option C: Split Personal Profile & Photo Card) -->
+    <!-- HERO SECTION -->
     <section id="home" class="pt-4 sm:pt-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
@@ -262,12 +262,18 @@
                 <span class="text-[11px] text-slate-500">Karnataka, IN</span>
               </div>
 
-<!-- Photo / Avatar Frame -->
-<div class="relative rounded-xl overflow-hidden bg-gradient-to-b from-dark-800 to-dark-950 border border-white/10 p-2 flex flex-col items-center justify-center group">
-  <div class="w-full h-56 rounded-lg bg-dark-850 flex flex-col items-center justify-center relative overflow-hidden">
-    <img src="profile.jpg" alt="Tasbiha Desai" class="w-full h-full object-cover rounded-lg">
-  </div>
-</div>
+              <!-- Photo / Avatar Frame -->
+              <div class="relative rounded-xl overflow-hidden bg-gradient-to-b from-dark-800 to-dark-950 border border-white/10 p-2 flex flex-col items-center justify-center group">
+                <div class="w-full h-64 rounded-lg bg-dark-850 flex items-center justify-center relative overflow-hidden">
+                  <img 
+                    src="profile.jpg" 
+                    alt="Tasbiha Desai" 
+                    class="w-full h-full object-cover rounded-lg"
+                    onerror="if (!this.dataset.retried) { this.dataset.retried = 1; this.src = 'profile.jpeg'; } else if (this.dataset.retried == 1) { this.dataset.retried = 2; this.src = 'profile.png'; }"
+                  >
+                </div>
+              </div>
+
               <!-- Academic & Performance Highlights in Card -->
               <div class="space-y-2.5 font-mono text-xs">
                 <div class="flex items-center justify-between p-2.5 rounded-lg bg-dark-950/60 border border-white/5">
