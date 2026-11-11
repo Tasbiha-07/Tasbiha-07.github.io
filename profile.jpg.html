@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasbiha Desai | AI & ML Engineer Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            dark: {
+              950: '#06090e',
+              900: '#0b0f19',
+              850: '#111726',
+              800: '#172033',
+              700: '#232f48',
+            },
+            primary: {
+              400: '#38bdf8',
+              500: '#0284c7',
+            },
+            accent: {
+              cyan: '#06b6d4',
+              indigo: '#6366f1',
+              emerald: '#10b981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080c14;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(19, 26, 42, 0.7) 0%, rgba(13, 18, 30, 0.8) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -10px rgba(2, 132, 199, 0.12);
+    }
+
+    .glass-nav {
+      background: rgba(8, 12, 20, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .grid-lines {
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080c14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-500/20 selection:text-cyan-300 relative min-h-screen grid-lines">
+
+  <!-- Ambient light blobs -->
+  <div class="ambient-glow bg-cyan-500 top-0 left-1/4"></div>
+  <div class="ambient-glow bg-indigo-600 top-1/3 right-10"></div>
+  <div class="ambient-glow bg-emerald-500 bottom-1/4 left-10"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3 rounded-xl bg-dark-850 text-white border border-slate-700/80 shadow-2xl text-xs font-mono">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+    <span id="toast-msg">Text copied</span>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 border border-cyan-500/30 flex items-center justify-center font-mono text-sm font-bold text-cyan-400 group-hover:scale-105 transition-transform">
+          TD
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Tasbiha Desai</span>
+          <span class="text-[11px] font-mono text-slate-400 tracking-wider">AI/ML ENGINEER</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-mono font-medium text-slate-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#education" class="hover:text-cyan-400 transition-colors">Education & Certs</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Button & Links -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://github.com/Tasbiha-07" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 hover:border-cyan-400/50 flex items-center justify-center text-slate-300 hover:text-white transition-colors" title="GitHub">
+          <i class="fa-brands fa-github text-sm"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 hover:border-cyan-400/50 flex items-center justify-center text-slate-300 hover:text-white transition-colors" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in text-sm"></i>
+        </a>
+        <a href="#contact" class="px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars-staggered text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 py-5 bg-dark-900 border-b border-white/10 space-y-3 font-mono text-xs">
+      <a href="#about" class="block py-1 text-slate-300 hover:text-cyan-400">About Me</a>
+      <a href="#skills" class="block py-1 text-slate-300 hover:text-cyan-400">Technical Skills</a>
+      <a href="#projects" class="block py-1 text-slate-300 hover:text-cyan-400">Projects</a>
+      <a href="#education" class="block py-1 text-slate-300 hover:text-cyan-400">Education & Certifications</a>
+      <a href="#contact" class="block py-1 text-slate-300 hover:text-cyan-400">Contact</a>
+      <div class="pt-3 border-t border-white/10 flex items-center gap-3">
+        <a href="https://github.com/Tasbiha-07" target="_blank" class="text-slate-400 hover:text-white">
+          <i class="fa-brands fa-github mr-1"></i> GitHub
+        </a>
+        <a href="mailto:tasbiha.work@gmail.com" class="text-cyan-400">Email Me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 pt-12 pb-24 space-y-28">
+
+    <!-- HERO SECTION (Option C: Split Personal Profile & Photo Card) -->
+    <section id="home" class="pt-4 sm:pt-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Side: Introduction & Story -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Live Status Badge -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-medium text-slate-200">Available for AI/ML Engineering Roles & Internships</span>
+          </div>
+
+          <!-- Headline -->
+          <div class="space-y-3">
+            <p class="text-xs font-mono tracking-widest uppercase text-cyan-400 font-semibold">Hello World, I'm</p>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              Tasbiha Desai
+            </h1>
+            <h2 class="text-xl sm:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
+              Aspiring AI/ML Engineer & Final-Year B.E. CSE (AI & ML) Student
+            </h2>
+          </div>
+
+          <!-- Description -->
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+            Passionate about turning raw data into robust, production-grade intelligence. Studying at <strong class="text-white">AGMR College of Engineering & Technology</strong> with a strong foundation in predictive modeling, Retrieval-Augmented Generation (RAG), and data analytics.
+          </p>
+
+          <!-- Core Competencies Badges -->
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            <span class="px-3 py-1.5 rounded-lg bg-dark-900/90 border border-cyan-500/20 text-cyan-300 font-medium">Python</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-900/90 border border-indigo-500/20 text-indigo-300 font-medium">Machine Learning</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-900/90 border border-emerald-500/20 text-emerald-300 font-medium">SQL</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-900/90 border border-sky-500/20 text-sky-300 font-medium">Data Analytics</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-900/90 border border-purple-500/20 text-purple-300 font-medium">RAG Pipelines</span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a href="#projects" class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 shadow-lg shadow-cyan-500/20 transition-all flex items-center gap-2">
+              <span>View Projects</span>
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+            <a href="#contact" class="px-6 py-3.5 rounded-xl font-mono text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center gap-2">
+              <span>Get in Touch</span>
+              <i class="fa-solid fa-paper-plane text-[11px] text-cyan-400"></i>
+            </a>
+            <div class="flex items-center gap-2 pl-1">
+              <a href="https://github.com/Tasbiha-07" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all" title="GitHub Profile">
+                <i class="fa-brands fa-github text-base"></i>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all" title="LinkedIn Profile">
+                <i class="fa-brands fa-linkedin-in text-base"></i>
+              </a>
+              <button onclick="copyEmail()" class="p-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all" title="Copy Email">
+                <i class="fa-regular fa-envelope text-base"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Sleek Profile & Photo Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            
+            <!-- Glow backdrop behind card -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+
+            <!-- The Card -->
+            <div class="relative glass-card rounded-2xl p-6 border border-white/10 bg-dark-900/90 shadow-2xl space-y-5">
+              
+              <!-- Card Header -->
+              <div class="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs text-slate-400">
+                <span class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                  <span class="text-white font-medium">tasbiha-desai</span>
+                </span>
+                <span class="text-[11px] text-slate-500">Karnataka, IN</span>
+              </div>
+
+              <!-- Photo / Avatar Frame -->
+              <div class="relative rounded-xl overflow-hidden bg-gradient-to-b from-dark-800 to-dark-950 border border-white/10 p-2 flex flex-col items-center justify-center group">
+                <div class="w-full h-56 rounded-lg bg-dark-850 flex flex-col items-center justify-center relative overflow-hidden border border-white/5">
+                  
+                  <!-- Subtle gradient ring decoration -->
+                  <div class="w-32 h-32 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-2">
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-cyan-500/20 via-indigo-500/20 to-sky-400/20 flex items-center justify-center text-4xl text-cyan-300 font-bold font-mono">
+                      TD
+                    </div>
+                  </div>
+                  
+                  <span class="text-xs font-mono text-slate-400">Tasbiha Desai</span>
+                  <span class="text-[11px] font-mono text-cyan-400/90 mt-0.5">AI/ML Engineer</span>
+
+                  <!-- Overlay hint for image customization -->
+                  <div class="absolute inset-0 bg-dark-950/70 backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                    <i class="fa-regular fa-image text-2xl text-cyan-400 mb-1"></i>
+                    <span class="text-xs text-white font-mono font-medium">Replace with real photo</span>
+                    <span class="text-[10px] text-slate-400 font-mono mt-1">&lt;img src="..." /&gt;</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Academic & Performance Highlights in Card -->
+              <div class="space-y-2.5 font-mono text-xs">
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-dark-950/60 border border-white/5">
+                  <span class="text-slate-400 text-[11px]">Academic CGPA</span>
+                  <span class="text-cyan-400 font-bold">8.78 (through 6th sem)</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-dark-950/60 border border-white/5">
+                  <span class="text-slate-400 text-[11px]">Education Timeline</span>
+                  <span class="text-white font-medium">2023 – 2027</span>
+                </div>
+                <div class="flex items-center justify-between p-2.5 rounded-lg bg-dark-950/60 border border-white/5">
+                  <span class="text-slate-400 text-[11px]">Degree Standing</span>
+                  <span class="text-emerald-400 font-semibold">7th Semester</span>
+                </div>
+              </div>
+
+              <!-- Location / Institution footer in card -->
+              <div class="pt-3 border-t border-white/10 flex items-center gap-2 text-slate-400 text-[11px]">
+                <i class="fa-solid fa-building-columns text-cyan-400 text-xs"></i>
+                <span class="truncate">AGMR College of Engg. & Tech.</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="pt-10 space-y-8">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-[2px] bg-cyan-400"></div>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-cyan-400 font-semibold">About Me</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Story / Narrative -->
+        <div class="lg:col-span-8 space-y-5 text-slate-300 text-base leading-relaxed">
+          <p>
+            Hello! I am <strong class="text-white">Tasbiha Desai</strong>, a computer science engineering student specializing in <strong class="text-white">Artificial Intelligence and Machine Learning</strong> at AGMR College of Engineering & Technology, Karnataka.
+          </p>
+          <p>
+            I am driven by a fundamental curiosity for turning complex datasets into reliable, transparent engineering systems. Instead of treating machine learning as a black box, I focus on the underlying mechanics—fine-tuning retrieval pipelines, handling heavy class skew in classification tasks, and building intuitive natural language interfaces using modern LLM APIs.
+          </p>
+          <p>
+            My recent projects range from building hybrid RAG search architectures with Reciprocal Rank Fusion, to orchestrating conversational sales analytics tools using the Gemini API, to crafting end-to-end interactive applications. I value clean code structure, modular architecture, and tangible problem solving.
+          </p>
+          
+          <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-3 py-1.5 rounded-lg bg-dark-800 border border-slate-700/60 text-slate-300">Problem Solver</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-800 border border-slate-700/60 text-slate-300">Continuous Learner</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-800 border border-slate-700/60 text-slate-300">Data Enthusiast</span>
+            <span class="px-3 py-1.5 rounded-lg bg-dark-800 border border-slate-700/60 text-slate-300">Open Collaborator</span>
+          </div>
+        </div>
+
+        <!-- Academic Snapshot Card -->
+        <div class="lg:col-span-4 glass-card p-6 rounded-2xl space-y-5">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Profile Overview</span>
+            <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+          </div>
+
+          <div class="space-y-3.5 text-xs font-mono">
+            <div>
+              <span class="text-slate-500 block text-[10px] uppercase">Institution</span>
+              <span class="text-slate-200 font-sans text-sm font-medium">AGMR College of Engg. & Tech.</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px] uppercase">Specialization</span>
+              <span class="text-slate-200 font-sans text-sm font-medium">B.E. CSE (AI & ML)</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px] uppercase">Current Semester</span>
+              <span class="text-cyan-400 font-sans text-sm font-semibold">7th Semester</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px] uppercase">Grade Performance</span>
+              <span class="text-emerald-400 font-sans text-sm font-bold">8.78 CGPA (through 6th Sem)</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px] uppercase">Engineering Period</span>
+              <span class="text-slate-300">2023 – 2027</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="pt-10 space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-[2px] bg-cyan-400"></div>
+          <h2 class="text-sm font-mono uppercase tracking-widest text-cyan-400 font-semibold">Technical Skills</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-500">Core proficiencies & frameworks</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Category 1: Languages -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <i class="fa-solid fa-code text-base"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Languages</h3>
+            <p class="text-xs text-slate-400 mt-1">Core programming & querying syntax</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Python</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">SQL</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Java</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">C</span>
+          </div>
+        </div>
+
+        <!-- Category 2: ML & AI -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+            <i class="fa-solid fa-brain text-base"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">ML & AI</h3>
+            <p class="text-xs text-slate-400 mt-1">Machine intelligence & modeling</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Machine Learning</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Scikit-learn</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">LangChain</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">RAG</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Gemini API</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Data & Analytics -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <i class="fa-solid fa-chart-line text-base"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Data & Analytics</h3>
+            <p class="text-xs text-slate-400 mt-1">Data wrangling & business insights</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Pandas</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">NumPy</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Power BI</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Plotly</span>
+          </div>
+        </div>
+
+        <!-- Category 4: Tools & DBs -->
+        <div class="glass-card p-6 rounded-2xl space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+            <i class="fa-solid fa-database text-base"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white">Tools & Indices</h3>
+            <p class="text-xs text-slate-400 mt-1">Vector stores, graphs & workflow</p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">FAISS</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">BM25</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Neo4j</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">Git / GitHub</span>
+            <span class="px-2.5 py-1.5 rounded-lg bg-dark-900 border border-white/10 text-slate-200">VS Code</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS SECTION -->
+    <section id="projects" class="pt-10 space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-[2px] bg-cyan-400"></div>
+          <h2 class="text-sm font-mono uppercase tracking-widest text-cyan-400 font-semibold">Featured Projects</h2>
+        </div>
+        <a href="https://github.com/Tasbiha-07" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors">
+          <span>View GitHub (@Tasbiha-07)</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Project 1: Rag-Hybrid-Search -->
+        <div class="glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono font-medium">
+                Information Retrieval
+              </span>
+              <span class="text-xs font-mono text-slate-400">RAG Architecture</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Rag-Hybrid-Search</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mt-2.5">
+                Demonstrates state-of-the-art Retrieval-Augmented Generation (RAG) by combining BM25 exact keyword matching with dense FAISS vector embeddings. Uses Reciprocal Rank Fusion (RRF) to merge query results, mitigating retrieval blind spots and grounding the Gemini API response.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px]">
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-cyan-300">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Streamlit</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">FAISS</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">BM25</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">LangChain</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Gemini API</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+            <a href="https://github.com/Tasbiha-07/rag-hybrid-search" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>Source Code</span>
+            </a>
+            <button onclick="openModal('rag')" class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all flex items-center gap-1.5">
+              <span>View Details</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: AI-Sales-Data-Analyst -->
+        <div class="glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono font-medium">
+                Data Analytics
+              </span>
+              <span class="text-xs font-mono text-slate-400">Conversational BI</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">AI-Sales-Data-Analyst</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mt-2.5">
+                Translates natural language questions into dynamic Pandas aggregations and Plotly visual dashboards using Google's Gemini API. Empower non-technical stakeholders to audit sales cohorts, track churn, and understand revenue patterns without SQL.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px]">
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-indigo-300">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Streamlit</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Pandas</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Plotly</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Gemini API</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+            <a href="https://github.com/Tasbiha-07/AI-sales-data-analyst" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>Source Code</span>
+            </a>
+            <button onclick="openModal('sales')" class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 transition-all flex items-center gap-1.5">
+              <span>View Details</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: Spam-Email-Detector -->
+        <div class="glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono font-medium">
+                NLP & Modeling
+              </span>
+              <span class="text-xs font-mono text-slate-400">Classification Pipeline</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Spam-Email-Detector</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mt-2.5">
+                Supervised text classification pipeline engineering. Processes raw email corpora with tokenization, stopword cleaning, and TF-IDF feature extraction before inference with trained machine learning models, optimized to avoid false positives.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px]">
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-emerald-300">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Machine Learning</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Scikit-learn</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">TF-IDF</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Pandas</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+            <a href="https://github.com/Tasbiha-07/spam-email-detector" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>Source Code</span>
+            </a>
+            <button onclick="openModal('spam')" class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-all flex items-center gap-1.5">
+              <span>View Details</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: Language-Learning-App -->
+        <div class="glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono font-medium">
+                Application Design
+              </span>
+              <span class="text-xs font-mono text-slate-400">Problem Solving</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white tracking-tight">Language-Learning-App</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mt-2.5">
+                An interactive application designed to improve retention through spaced-repetition logic, user quiz loops, and real-time session tracking. Demonstrates clean front-to-back state management and user-centered design.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 pt-1 font-mono text-[11px]">
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-purple-300">Python</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">Streamlit</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">UI/UX</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-900 border border-white/10 text-slate-200">State Management</span>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+            <a href="https://github.com/Tasbiha-07/Language-Learning-App" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>Source Code</span>
+            </a>
+            <button onclick="openModal('lang')" class="text-xs font-mono px-3.5 py-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 transition-all flex items-center gap-1.5">
+              <span>View Details</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section id="education" class="pt-10 space-y-8">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-[2px] bg-cyan-400"></div>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-cyan-400 font-semibold">Education & Accreditations</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Degree Details (Left 6 cols) -->
+        <div class="lg:col-span-6 glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-mono font-medium">
+                Bachelor of Engineering (B.E.)
+              </span>
+              <span class="text-xs font-mono text-slate-400">2023 – 2027</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-bold text-white">Computer Science & Engineering (AI & ML)</h3>
+              <p class="text-sm text-slate-300 font-medium mt-1">AGMR College of Engineering & Technology</p>
+              <p class="text-xs text-slate-400 mt-0.5">Affiliated with VTU, Belagavi, Karnataka</p>
+            </div>
+
+            <!-- Grade Callout -->
+            <div class="p-4 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-mono text-slate-400 block uppercase">Cumulative Grade</span>
+                <span class="text-2xl font-bold text-cyan-400">8.78 CGPA</span>
+                <span class="text-[11px] text-slate-400 block mt-0.5">Calculated through 6th Semester</span>
+              </div>
+              <div class="text-right font-mono text-xs">
+                <span class="text-slate-400 block">Standing:</span>
+                <span class="text-emerald-400 font-semibold">7th Semester</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10">
+            <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2">Relevant Core Modules:</span>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-300">
+              <span class="px-2.5 py-1 rounded bg-dark-900 border border-white/5">Machine Learning</span>
+              <span class="px-2.5 py-1 rounded bg-dark-900 border border-white/5">Deep Learning</span>
+              <span class="px-2.5 py-1 rounded bg-dark-900 border border-white/5">Data Structures</span>
+              <span class="px-2.5 py-1 rounded bg-dark-900 border border-white/5">DBMS & SQL</span>
+              <span class="px-2.5 py-1 rounded bg-dark-900 border border-white/5">Design & Analysis of Algorithms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications & Credentials (Right 6 cols) -->
+        <div class="lg:col-span-6 glass-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+              <h3 class="text-base font-bold text-white">Professional Accreditations</h3>
+              <span class="text-xs font-mono text-slate-400">Verified Credentials</span>
+            </div>
+
+            <div class="space-y-3 font-mono text-xs">
+              
+              <!-- Credential 1: Hugging Face -->
+              <div class="p-3.5 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xs">
+                    HF
+                  </div>
+                  <div>
+                    <span class="text-white font-medium block">Hugging Face Agents Course</span>
+                    <span class="text-[11px] text-slate-400">Autonomous AI Agents, Tool Calling & Multi-Agent Logic</span>
+                  </div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 whitespace-nowrap">AI Agents</span>
+              </div>
+
+              <!-- Credential 2: Neo4j -->
+              <div class="p-3.5 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                    N4J
+                  </div>
+                  <div>
+                    <span class="text-white font-medium block">Neo4j & Generative AI Certification</span>
+                    <span class="text-[11px] text-slate-400">GraphRAG, Knowledge Graphs & Cypher querying</span>
+                  </div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 whitespace-nowrap">GraphRAG</span>
+              </div>
+
+              <!-- Credential 3: Infosys Springboard -->
+              <div class="p-3.5 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-xs">
+                    INF
+                  </div>
+                  <div>
+                    <span class="text-white font-medium block">Infosys Springboard</span>
+                    <span class="text-[11px] text-slate-400">Python Programming & Software Foundations</span>
+                  </div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 whitespace-nowrap">Python</span>
+              </div>
+
+              <!-- Credential 4: IBM SkillsBuild -->
+              <div class="p-3.5 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs">
+                    IBM
+                  </div>
+                  <div>
+                    <span class="text-white font-medium block">IBM SkillsBuild</span>
+                    <span class="text-[11px] text-slate-400">Artificial Intelligence Fundamentals</span>
+                  </div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20 whitespace-nowrap">AI Core</span>
+              </div>
+
+              <!-- Credential 5: Cisco -->
+              <div class="p-3.5 rounded-xl bg-dark-900 border border-white/10 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-xs">
+                    CSC
+                  </div>
+                  <div>
+                    <span class="text-white font-medium block">Cisco Networking Academy</span>
+                    <span class="text-[11px] text-slate-400">Introduction to Cybersecurity</span>
+                  </div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 whitespace-nowrap">Security</span>
+              </div>
+
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-400 font-mono pt-3 border-t border-white/10">
+            All certifications earned with verified course completions and practical assignments.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="pt-10 space-y-8">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-[2px] bg-cyan-400"></div>
+        <h2 class="text-sm font-mono uppercase tracking-widest text-cyan-400 font-semibold">Contact & Connect</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Channels & Details (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="space-y-3">
+            <h3 class="text-2xl font-bold text-white tracking-tight">Let's build something impactful together.</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              I am actively seeking AI/ML engineering internships, graduate engineering opportunities, and technical collaborations. Whether you have an open role or want to discuss RAG pipelines, feel free to reach out.
+            </p>
+          </div>
+
+          <div class="space-y-3 font-mono text-xs">
+            <!-- Email -->
+            <div class="p-4 rounded-xl glass-card flex items-center justify-between">
+              <div class="truncate mr-3">
+                <span class="text-[10px] text-slate-400 uppercase block">Direct Email</span>
+                <span class="text-white font-medium font-sans text-sm select-all">tasbiha.work@gmail.com</span>
+              </div>
+              <button onclick="copyEmail()" class="p-2.5 rounded-lg bg-dark-900 border border-white/10 hover:border-cyan-400 text-slate-300 hover:text-white transition-all" title="Copy to clipboard">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- GitHub -->
+            <a href="https://github.com/Tasbiha-07" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl glass-card flex items-center justify-between group">
+              <div>
+                <span class="text-[10px] text-slate-400 uppercase block">GitHub Profile</span>
+                <span class="text-white font-medium font-sans text-sm group-hover:text-cyan-400 transition-colors">github.com/Tasbiha-07</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-white transition-colors"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl glass-card flex items-center justify-between group">
+              <div>
+                <span class="text-[10px] text-slate-400 uppercase block">LinkedIn</span>
+                <span class="text-white font-medium font-sans text-sm group-hover:text-cyan-400 transition-colors">linkedin.com/in/tasbiha-desai</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-400 group-hover:text-white transition-colors"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form (7 cols) -->
+        <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-2xl">
+          <h4 class="text-base font-bold text-white mb-2">Send a Message</h4>
+          <p class="text-xs text-slate-400 font-mono mb-6">Leave your details and note below—I will reply promptly.</p>
+
+          <form onsubmit="handleMessage(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label for="name" class="block text-xs font-mono text-slate-300">Your Name</label>
+                <input type="text" id="name" required placeholder="Alex Morgan" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+              </div>
+              <div class="space-y-1.5">
+                <label for="email" class="block text-xs font-mono text-slate-300">Your Email</label>
+                <input type="email" id="email" required placeholder="alex@company.com" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="subject" class="block text-xs font-mono text-slate-300">Subject</label>
+              <input type="text" id="subject" placeholder="Role Inquiry / Discussion" class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+            </div>
+
+            <div class="space-y-1.5">
+              <label for="message" class="block text-xs font-mono text-slate-300">Message</label>
+              <textarea id="message" rows="4" required placeholder="Hi Tasbiha, I came across your portfolio and wanted to discuss..." class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-colors resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full py-3.5 px-6 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 text-slate-950 transition-all flex items-center justify-center gap-2">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Project Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass-card max-w-xl w-full p-6 sm:p-8 rounded-2xl relative shadow-2xl max-h-[90vh] overflow-y-auto border border-white/20">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2" aria-label="Close modal">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div id="modal-container">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10 bg-dark-950/60 font-mono text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="text-slate-400 font-medium">Tasbiha Desai • AI & ML Engineer</p>
+        <p class="text-[11px] text-slate-600 mt-0.5">B.E. Computer Science & Engineering (2023 – 2027)</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#home" class="hover:text-cyan-400 transition-colors">Top &uarr;</a>
+        <a href="https://github.com/Tasbiha-07" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">GitHub</a>
+        <a href="mailto:tasbiha.work@gmail.com" class="hover:text-cyan-400 transition-colors">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Drawer Toggle
+    const toggleBtn = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Toast Notifications
+    function triggerToast(text) {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toast-msg');
+      msg.textContent = text;
+
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3200);
+    }
+
+    // Copy Email Helper
+    function copyEmail() {
+      const email = 'tasbiha.work@gmail.com';
+      const tempArea = document.createElement('textarea');
+      tempArea.value = email;
+      tempArea.style.position = 'fixed';
+      tempArea.style.left = '-9999px';
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      try {
+        document.execCommand('copy');
+        triggerToast('Copied tasbiha.work@gmail.com to clipboard!');
+      } catch (e) {
+        triggerToast('Email: tasbiha.work@gmail.com');
+      }
+      document.body.removeChild(tempArea);
+    }
+
+    // Message Form Handler
+    function handleMessage(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span>Sending...</span> <i class="fa-solid fa-spinner animate-spin text-xs"></i>`;
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        triggerToast('Thank you! Your message has been sent successfully.');
+        e.target.reset();
+      }, 800);
+    }
+
+    // Project Details Data
+    const projectDetails = {
+      rag: {
+        title: "Rag-Hybrid-Search",
+        category: "Information Retrieval & RAG",
+        repo: "https://github.com/Tasbiha-07/rag-hybrid-search",
+        overview: "Combines sparse keyword retrieval (BM25) with dense semantic embeddings (FAISS) via Reciprocal Rank Fusion (RRF) to eliminate retrieval failure modes before prompting Google's Gemini LLM.",
+        highlights: [
+          "Implements dual-retriever orchestration with BM25 lexical search and FAISS vector index.",
+          "Applies Reciprocal Rank Fusion (RRF) to re-score and merge dense/sparse rankings dynamically.",
+          "Minimizes LLM hallucination by supplying verified document snippets as ground-truth context.",
+          "Constructed with LangChain primitives and deployed with a clean Streamlit interface."
+        ],
+        stack: ["Python", "Streamlit", "FAISS", "BM25", "LangChain", "Gemini API"]
+      },
+      sales: {
+        title: "AI-Sales-Data-Analyst",
+        category: "Conversational BI & Visualization",
+        repo: "https://github.com/Tasbiha-07/AI-sales-data-analyst",
+        overview: "An automated data intelligence platform that parses free-form natural language prompts into executable Pandas transformations and Plotly visual dashboards using Google's Gemini API.",
+        highlights: [
+          "Engineered schema-grounded prompt templates preventing hallucinations and syntax errors in generated queries.",
+          "Generates dynamic visualizations for cohort revenue, seasonal sales dips, and regional breakdowns.",
+          "Incorporated robust exception boundaries for irregular CSV headers and missing data fields.",
+          "Provides interactive conversational explanations accompanying every generated chart."
+        ],
+        stack: ["Python", "Streamlit", "Pandas", "Plotly", "Gemini API"]
+      },
+      spam: {
+        title: "Spam-Email-Detector",
+        category: "Machine Learning & NLP",
+        repo: "https://github.com/Tasbiha-07/spam-email-detector",
+        overview: "Supervised machine learning pipeline for automated email spam filtering, applying tokenization, text normalization, and TF-IDF feature weights to train high-precision classification models.",
+        highlights: [
+          "Transforms raw text through regex tokenization, custom stopword filters, and n-gram TF-IDF vectorization.",
+          "Evaluated and benchmarked multiple models including Multinomial Naive Bayes and Logistic Regression.",
+          "Fine-tuned decision thresholds specifically to minimize critical false positives (normal emails marked as spam).",
+          "Includes real-time inference playground with confidence score indicators."
+        ],
+        stack: ["Python", "Machine Learning", "Scikit-learn", "TF-IDF", "Pandas"]
+      },
+      lang: {
+        title: "Language-Learning-App",
+        category: "Software Engineering & App Design",
+        repo: "https://github.com/Tasbiha-07/Language-Learning-App",
+        overview: "Full-lifecycle interactive application tackling learner retention through spaced-repetition logic, customizable vocabulary recall modules, and persistent progress analytics.",
+        highlights: [
+          "Developed spaced interval scheduling algorithms to present forgotten words at optimal recall windows.",
+          "Designed clean modular state management in Python to keep quizzes responsive and persistent.",
+          "Created intuitive feedback loops, mistake reviews, and performance scoring charts.",
+          "Structured code into decoupled components for questions generation, UI rendering, and user scoring."
+        ],
+        stack: ["Python", "Streamlit", "UI/UX", "State Management"]
+      }
+    };
+
+    // Modal Control
+    function openModal(key) {
+      const data = projectDetails[key];
+      if (!data) return;
+
+      const container = document.getElementById('modal-container');
+      container.innerHTML = `
+        <div class="space-y-5">
+          <div>
+            <div class="flex items-center justify-between pr-8">
+              <span class="text-xs font-mono text-cyan-400 font-semibold">${data.category}</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mt-1">${data.title}</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">${data.overview}</p>
+          </div>
+
+          <div class="space-y-3 pt-3 border-t border-white/10">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Key Highlights & Architecture:</h4>
+            <ul class="space-y-2 text-xs text-slate-300">
+              ${data.highlights.map(item => `
+                <li class="flex items-start gap-2.5">
+                  <span class="text-cyan-400 mt-0.5">•</span>
+                  <span class="leading-relaxed">${item}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-white/10 space-y-2">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">Technology Stack:</h4>
+            <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+              ${data.stack.map(s => `<span class="px-2.5 py-1 rounded bg-dark-900 border border-white/10 text-cyan-300">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-white/10 flex items-center justify-between">
+            <a href="${data.repo}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center gap-2 transition-colors">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>View Repository</span>
+            </a>
+            <button onclick="closeModal()" class="text-xs font-mono px-4 py-2 rounded-lg bg-dark-900 hover:bg-dark-800 text-slate-300 border border-white/10 transition-colors">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+
+      const modal = document.getElementById('project-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      document.body.style.overflow = '';
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+    document.getElementById('project-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'project-modal') closeModal();
+    });
+  </script>
+</body>
+</html>
